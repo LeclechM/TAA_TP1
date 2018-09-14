@@ -1,5 +1,6 @@
 package Entity;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,7 +22,7 @@ public class Lieu
 	 * @ordered
 	 */
 	 
-	@javax.persistence.Column(nullable = false) 
+	@Column(nullable = false)
 	protected String nomLieu;
 
 	/**
@@ -31,7 +32,7 @@ public class Lieu
 	 * @ordered
 	 */
 	 
-	@javax.persistence.Column(nullable = false) 
+	@Column(nullable = false)
 	protected int CodePostal;
 
 	/**
@@ -41,7 +42,7 @@ public class Lieu
 	 * @ordered
 	 */
 	 
-	@javax.persistence.ManyToMany(mappedBy = "lieu") 
+	@ManyToMany(mappedBy = "lieu")
 	protected Set<Personne> personne;
 
 	/**
@@ -51,7 +52,7 @@ public class Lieu
 	 * @ordered
 	 */
 	 
-	@javax.persistence.ManyToMany(mappedBy = "lieu") 
+	@ManyToMany(mappedBy = "lieu")
 	protected Set<Sport> sport;
 
 	/**
@@ -60,9 +61,10 @@ public class Lieu
 	 * @generated
 	 * @ordered
 	 */
-	@javax.persistence.Id 
-	@javax.persistence.Column(nullable = false) 
-	protected final Long id = 0L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(nullable = false)
+	protected Long id;
 
 	/**
 	 * <!-- begin-user-doc -->

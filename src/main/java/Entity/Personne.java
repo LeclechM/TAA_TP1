@@ -1,5 +1,6 @@
 package Entity;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,7 +22,7 @@ public class Personne
 	 * @ordered
 	 */
 	 
-	@javax.persistence.Column(nullable = false) 
+	@Column(nullable = false)
 	protected String Nom;
 
 	/**
@@ -31,7 +32,7 @@ public class Personne
 	 * @ordered
 	 */
 	 
-	@javax.persistence.Column(nullable = false) 
+	@Column(nullable = false)
 	protected String Prenom;
 
 	/**
@@ -41,7 +42,7 @@ public class Personne
 	 * @ordered
 	 */
 	 
-	@javax.persistence.Column(nullable = false) 
+	@Column(nullable = false)
 	protected String email;
 
 	/**
@@ -51,7 +52,7 @@ public class Personne
 	 * @ordered
 	 */
 	 
-	@javax.persistence.ManyToMany 
+	@ManyToMany
 	protected Set<Lieu> lieu;
 
 	/**
@@ -60,9 +61,10 @@ public class Personne
 	 * @generated
 	 * @ordered
 	 */
-	@javax.persistence.Id 
-	@javax.persistence.Column(nullable = false) 
-	protected final Long id = 0L;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(nullable = false)
+	protected Long id ;
 
 	/**
 	 * <!-- begin-user-doc -->

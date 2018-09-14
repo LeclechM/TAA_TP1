@@ -1,5 +1,6 @@
 package Entity;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,7 +22,7 @@ public class Sport
 	 * @ordered
 	 */
 	 
-	@javax.persistence.Column(nullable = false) 
+	@Column(nullable = false)
 	protected String name;
 
 	/**
@@ -31,8 +32,8 @@ public class Sport
 	 * @ordered
 	 */
 	 
-	@javax.persistence.Enumerated(javax.persistence.EnumType.STRING) 
-	@javax.persistence.Column(nullable = false) 
+	@Enumerated(javax.persistence.EnumType.STRING)
+	@Column(nullable = false)
 	protected Niveaux niveau;
 
 	/**
@@ -42,7 +43,7 @@ public class Sport
 	 * @ordered
 	 */
 	 
-	@javax.persistence.ManyToMany 
+	@ManyToMany
 	protected Set<Lieu> lieu;
 
 	/**
@@ -51,9 +52,10 @@ public class Sport
 	 * @generated
 	 * @ordered
 	 */
-	@javax.persistence.Id 
-	@javax.persistence.Column(nullable = false) 
-	protected final Long id = 0L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(nullable = false)
+	protected Long id ;
 
 	/**
 	 * <!-- begin-user-doc -->
