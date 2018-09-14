@@ -12,7 +12,7 @@ import java.util.Set;
  * @generated
  */
  
-@javax.persistence.Entity 
+@Entity
 public class Sport
 {
 	/**
@@ -66,6 +66,10 @@ public class Sport
 		super();
 	}
 
+	public Sport(String name,Niveaux niveau){
+	    this.setName(name);
+	    this.setNiveau(niveau);
+    }
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->

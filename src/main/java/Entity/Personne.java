@@ -12,7 +12,7 @@ import java.util.Set;
  * @generated
  */
  
-@javax.persistence.Entity 
+@Entity
 public class Personne
 {
 	/**
@@ -75,6 +75,11 @@ public class Personne
 		super();
 	}
 
+	public Personne(String prenom, String nom, String email){
+	    this.setPrenom(prenom);
+	    this.setNom(nom);
+	    this.setEmail(email);
+    }
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->

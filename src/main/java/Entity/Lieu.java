@@ -12,7 +12,7 @@ import java.util.Set;
  * @generated
  */
  
-@javax.persistence.Entity 
+@Entity
 public class Lieu
 {
 	/**
@@ -75,6 +75,10 @@ public class Lieu
 		super();
 	}
 
+	public Lieu(String nomLieu, Integer CodeP){
+	    this.setNomLieu(nomLieu);
+        this.setCodePostal(CodeP);
+    }
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
