@@ -251,6 +251,10 @@ public class Personne
 			oldLieu.removePersonne(this);
 		
 	}
+	@Override
+	public String toString(){
+	    return this.getNom() + " " + this.getPrenom() + " " + this.getEmail();
+    }
 
 }
 
