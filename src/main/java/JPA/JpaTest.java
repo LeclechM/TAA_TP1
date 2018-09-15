@@ -4,46 +4,38 @@ import Entity.Lieu;
 import Entity.Niveaux;
 import Entity.Personne;
 import Entity.Sport;
-import JPA.EntityManagerHelper;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
 public class JpaTest {
-	private EntityManager manager;
-
-	public JpaTest(EntityManager manager) {
-		this.manager = manager;
-	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
 		EntityManagerFactory factory = Persistence
 				.createEntityManagerFactory("dev");
 		EntityManager manager = factory.createEntityManager();
-		JpaTest test = new JpaTest(manager);
+
 		EntityTransaction tx = manager.getTransaction();
 		tx.begin();
 		try {
-			test.createTables();
+
+			createTables(manager);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		tx.commit();
 
-
 		manager.close();
-		EntityManagerHelper.closeEntityManagerFactory();
 		factory.close();
 	}
 
-	public void createTables(){
+	private  static void createTables(EntityManager manager) {
 		Personne p1 = new Personne("Jean","Michel","jean.michel@gmail.com");
 		Personne p2 = new Personne("Jackie","Chan","jackie.chan@gmail.com");
 		Personne p3 = new Personne("Michel","Sardou","Michel.Sardou@hotmail.fr");
